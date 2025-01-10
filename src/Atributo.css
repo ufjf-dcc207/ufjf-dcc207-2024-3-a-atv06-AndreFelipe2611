@@ -1,4 +1,10 @@
-.atributo{
-    display: flex;
-    border: 1px solid gray;
+.barra{
+    .acoes{
+        display: flex;
+        flex-direction: column;
+    }
+    .inativo{
+        filter: grayscale(100%);
+        opacity: 0.4;
+    }
 }

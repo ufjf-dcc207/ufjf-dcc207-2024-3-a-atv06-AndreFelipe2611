@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Atributo from "./Atributo.tsx";
 import "./Emoji.css";
 
 const EMOJIS = new Map<string, string>([
@@ -41,13 +42,17 @@ export default function Emoji() {
         setSituacao("happy");
     }
   }
-
   
-
-
   return (
     <div className="emoji">
       <div className="situacao">{EMOJIS.get(situacao) || "🫥"}</div>
+
+      <div className="status">
+        <Atributo icone= "❤️"></Atributo>
+        <Atributo icone= "⚡"></Atributo>
+        <Atributo icone= "🍔"></Atributo>
+        <Atributo icone= "💧"></Atributo> 
+      </div>
     
       <div className="acoes">
         <button onClick={toHappy}>Vivo</button>
@@ -55,9 +60,9 @@ export default function Emoji() {
         <button onClick={toDead}>Morto</button>
         <button onClick={cicle}>Ciclo da vida</button>
       </div>
-      <div className="personagem">
+ 
    
       </div>
-    </div>
+    
   );
 }

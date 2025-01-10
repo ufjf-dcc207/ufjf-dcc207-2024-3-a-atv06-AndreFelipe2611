@@ -1,13 +1,15 @@
 .emoji{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     .situacao{
-    font-size: 4em;
+        font-size: 4em;
     }
 }
 
 .acoes{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    
 }
 
 .acoes button{
