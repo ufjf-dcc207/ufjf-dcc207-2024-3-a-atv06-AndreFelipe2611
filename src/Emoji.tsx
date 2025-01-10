@@ -34,7 +34,7 @@ export default function Emoji() {
       case "sick":
         setSituacao("dead");
         break;
-      case "dead":
+      case "dead": 
         setSituacao("happy");
         break;
       default:
@@ -42,14 +42,21 @@ export default function Emoji() {
     }
   }
 
+  
+
+
   return (
     <div className="emoji">
       <div className="situacao">{EMOJIS.get(situacao) || "🫥"}</div>
+    
       <div className="acoes">
         <button onClick={toHappy}>Vivo</button>
         <button onClick={toSick}>Doente</button>
         <button onClick={toDead}>Morto</button>
         <button onClick={cicle}>Ciclo da vida</button>
+      </div>
+      <div className="personagem">
+   
       </div>
     </div>
   );
