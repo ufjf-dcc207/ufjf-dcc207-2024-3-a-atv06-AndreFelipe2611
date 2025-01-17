@@ -1,26 +1,11 @@
-import { useState } from "react";
-import "./Atributo.css";
+import "./Atributo.css"
 
- function Atributo({
-    icone
-   }:{
-    icone: string
-   })  {
-    const [valor, setValor] = useState(3);
-   function onMaisClick(){
-    if(valor == 5){
-    setValor(0);
-   }else{
-    setValor(valor + 1);
-   }
-}
-
+function Atributo({emoji, valor} : {emoji: string, valor: number}){
    return(
-     <div className="status">
-        <span>{icone.repeat(valor)}</span>
-        <span className="inativo">{icone.repeat(5 - valor)}</span>
-        <button onClick={onMaisClick}>+</button>
-    </div>
+      <div className="status">
+         <span>{emoji.repeat(valor)}</span>
+         <span className="inativo">{emoji.repeat(5-valor)}</span>
+      </div>
    );
 }
 
