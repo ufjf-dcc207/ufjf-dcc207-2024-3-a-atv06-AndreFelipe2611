@@ -4,6 +4,7 @@ import "./Emoji.css";
 
 const EMOJIS = new Map<string, string>([
   ["happy", "😎"],
+  ["sleep", "🥱"],
   ["sick", "🤢"],
   ["dead", "💀"],
 ]);
@@ -11,7 +12,7 @@ const EMOJIS = new Map<string, string>([
 
 
 function Emoji() {
-  const [situacao, setSituacao] = useState("deady");
+  const [situacao, setSituacao] = useState("happy");
   const [saude, setSaude] = useState(3);
   const [energia, setEnergia] = useState(3);
   const [agua, setAgua] = useState(3);
@@ -37,6 +38,9 @@ function Emoji() {
       setEnergia(Math.max(0, energia - 1));
     }else{
       setEnergia(Math.max(5, energia + 1));
+      if(comida >= 1 && agua >= 1){
+        
+      }
     }
     if (comida === 0) {
       setSaude((s) => Math.max(0, s - 1));
@@ -47,11 +51,20 @@ function Emoji() {
     if (energia === 0) {
       setSaude((s) => Math.max(0, s - 1));
     }
+    if(energia <= 2){
+      console.log("toSleep()!");
+      setSituacao("sleep");
+    }
+    if(saude === 0){
+      console.log("toDead()!");
+      setSituacao("dead");
+    }
+
   }
 
   return (
     <div className="emoji">
-      <div className="face">{EMOJIS.get(situacao) || "🫥"}</div>
+      <div className="situacao">{EMOJIS.get(situacao) || "🫥"}</div>
 
       <div className="status">
         <Atributo emoji="❤️" valor={saude}></Atributo>
