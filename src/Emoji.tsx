@@ -38,8 +38,9 @@ function Emoji() {
       setEnergia(Math.max(0, energia - 1));
     }else{
       setEnergia(Math.max(5, energia + 1));
-      if(comida >= 1 && agua >= 1){
-        
+      if(comida > 0 && agua > 0 && !luz){
+        setEnergia(Math.max(0, energia + 1));
+        setSaude(Math.min(5, saude + 1));
       }
     }
     if (comida === 0) {
